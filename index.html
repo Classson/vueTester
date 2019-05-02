@@ -8,7 +8,23 @@
 </head>
 <body>
   <div id="app">
-    <h2>{{ product }}</h2>
+    <div class="product">
+
+      <div class="product-info">
+        <h2>{{ `${product} cool huh?` }}</h2>
+        <p>{{ description }}</p>
+      </div>
+
+      <div class="product-image">
+          <a :href="link">
+          <img v-if="horizontal" v-bind:src="horImage" v-bind:alt="altText"/>
+          <img v-else v-bind:src="vertImage" v-bind:alt="altText"/>
+          </a>
+        </div>
+        <p v-if="horizontal">Horizontal Pants</p>
+        <p v-else>Vertical Pants</p>
+
+    </div>
   </div>
 
 <script src="http://unpkg.com/vue"></script>
