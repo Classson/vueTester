@@ -8,6 +8,7 @@ let app = new Vue({
     vertImage: "https://mozziepants.com/wp-content/uploads/2015/11/2015-11-19-07.52.43-2.jpg",
     altText: "dog in pants",
     link: "https://www.today.com/pets/how-would-dog-wear-pants-internet-finally-has-answer-t64486",
-    horizontal: false
+    horizontal: false,
+    coolStuff: ["furry", "friendly", "can learn tricks", "gets a lot of instagram likes"]
   }
 })
