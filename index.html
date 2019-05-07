@@ -1,38 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-</head>
-<body>
-  <div id="app">
-    <div class="product">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <div class="product">
+        <div class="product-info">
+          <h2>{{ title }}</h2>
+          <p>{{ description }}</p>
+        </div>
 
-      <div class="product-info">
-        <h2>{{ `${product} cool huh?` }}</h2>
-        <p>{{ description }}</p>
-      </div>
-
-      <div class="product-image">
+        <div class="views">
+          <h2 @mouseover="toggleImage(horzView)">Horizontal</h2>
+          <h2 @mouseover="toggleImage(vertView)">Vertical</h2>
+        </div>
+        <div class="product-image">
           <a :href="link">
-          <img v-if="horizontal" v-bind:src="horImage" v-bind:alt="altText"/>
-          <img v-else v-bind:src="vertImage" v-bind:alt="altText"/>
+            <img v-bind:src="image" v-bind:alt="altText" />
           </a>
         </div>
-        <p v-if="horizontal">Horizontal Pants</p>
-        <p v-else>Vertical Pants</p>
+
+        <div class="buttons" :style="{ backgroundColor: selectedColor }">
+          <div class="btnGrp">
+            <button v-on:click="addVert">I like the vertical pants</button>
+            <p>{{ vertView.likes }}</p>
+          </div>
+
+          <div class="button">
+            <button v-on:click="addHorz">I like the horizontal pants</button>
+            <p>{{ horzView.likes }}</p>
+          </div>
+        </div>
 
         <h2>Cool things about puppies</h2>
         <ul>
           <li v-for="thing in coolStuff">{{ thing }}</li>
         </ul>
-
+      </div>
     </div>
-  </div>
 
-<script src="http://unpkg.com/vue"></script>
-<script src="script.js"></script>
-</body>
+    <script src="http://unpkg.com/vue"></script>
+    <script src="script.js"></script>
+  </body>
 </html>
