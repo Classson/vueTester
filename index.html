@@ -9,39 +9,9 @@
   </head>
   <body>
     <div id="app">
-      <div class="product">
-        <div class="product-info">
-          <h2>{{ title }}</h2>
-          <p>{{ description }}</p>
-        </div>
-
-        <div class="views">
-          <h2 @mouseover="toggleImage(horzView)">Horizontal</h2>
-          <h2 @mouseover="toggleImage(vertView)">Vertical</h2>
-        </div>
-        <div class="product-image">
-          <a :href="link">
-            <img v-bind:src="image" v-bind:alt="altText" />
-          </a>
-        </div>
-
-        <div class="buttons" :style="{ backgroundColor: selectedColor }">
-          <div class="btnGrp">
-            <button v-on:click="addVert">I like the vertical pants</button>
-            <p>{{ vertView.likes }}</p>
-          </div>
-
-          <div class="button">
-            <button v-on:click="addHorz">I like the horizontal pants</button>
-            <p>{{ horzView.likes }}</p>
-          </div>
-        </div>
-
-        <h2>Cool things about puppies</h2>
-        <ul>
-          <li v-for="thing in coolStuff">{{ thing }}</li>
-        </ul>
-      </div>
+        <dog></dog>
+        <dog></dog>
+        <dog></dog>
     </div>
 
     <script src="http://unpkg.com/vue"></script>
