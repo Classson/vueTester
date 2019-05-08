@@ -1,10 +1,17 @@
 Vue.component('dog', {
+  props: {
+    premium: {
+      type: Boolean,
+      required: true
+    }
+  },
   template: `
   <div class="product">
   <div class="product-info">
     <h2>{{ title }}</h2>
     <p>{{ description }}</p>
   </div>
+  <p>User is premium: {{ premium }}</p>
 
   <div class="views">
     <h2 v-for="view in views" :key='view.view' @mouseover="toggleImage(view)"> {{ view.view }} </h2>
@@ -99,6 +106,8 @@ Vue.component('dog', {
 });
 
 let app = new Vue({
-  el: '#app'
-
+  el: '#app',
+  data: {
+    premium: true
+  }
 });
