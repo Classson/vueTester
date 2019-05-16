@@ -11,7 +11,6 @@ Vue.component('dog', {
     <h2>{{ title }}</h2>
     <p>{{ description }}</p>
   </div>
-  <p>User is premium: {{ premium }}</p>
 
   <div class="views">
     <h2 v-for="view in views" :key='view.view' @mouseover="toggleImage(view)"> {{ view.view }} </h2>
@@ -70,7 +69,6 @@ Vue.component('dog', {
       image:
         'https://mozziepants.com/wp-content/uploads/2015/11/2015-11-19-07.52.43-2.jpg',
       altText: 'dog in pants',
-      selectedColor: 'yellow',
       link:
         'https://www.today.com/pets/how-would-dog-wear-pants-internet-finally-has-answer-t64486',
       coolStuff: [
@@ -93,8 +91,10 @@ Vue.component('dog', {
 
     toggleImage(view) {
       this.image = view.image;
-      this.selectedColor = view.color;
+      // this.selectedColor = view.color;
       this.altText = view.alt;
+      this.$emit('update-color', view.color)
+
     },
   },
 
@@ -105,9 +105,26 @@ Vue.component('dog', {
   },
 });
 
+Vue.component('opinions', {
+  template:`
+  <input>`
+  ,
+  data(){
+    return {
+      name: null
+    }
+  }
+})
+
 let app = new Vue({
   el: '#app',
   data: {
-    premium: true
+    premium: true,
+    selectedColor: 'grey'
+  },
+  methods: {
+    updateColor(color){
+      this.selectedColor = color
+    }
   }
 });
