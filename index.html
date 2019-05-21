@@ -15,26 +15,6 @@
       <dog :premium="premium" @update-color="updateColor"></dog>
     </div>
 
-    <div>
-      <form class="options-form" @submit.prevent="onSubmit">
-
-        <p>
-          <label for="name">Name:</label>
-          <input id="name" v-model="name" placeholder="name" />
-        </p>
-
-        <p>
-          <label for="opinion">Opinion:</label>
-          <input id="opinion" v-model="opinion" placeholder="opinion" />
-        </p>
-
-        <p>
-          <input type="submit" value="Submit">
-        </p>
-
-      </form>
-    </div>
-
     <script src="http://unpkg.com/vue"></script>
     <script src="script.js"></script>
   </body>

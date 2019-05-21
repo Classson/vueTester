@@ -2,8 +2,8 @@ Vue.component('dog', {
   props: {
     premium: {
       type: Boolean,
-      required: true
-    }
+      required: true,
+    },
   },
   template: `
   <div class="product">
@@ -27,6 +27,7 @@ Vue.component('dog', {
       <p>{{ view.likes }}</p>
     </div>
 </div>
+<opinions></opinions>
 
   <h2>Cool things about puppies</h2>
   <ul>
@@ -93,8 +94,7 @@ Vue.component('dog', {
       this.image = view.image;
       // this.selectedColor = view.color;
       this.altText = view.alt;
-      this.$emit('update-color', view.color)
-
+      this.$emit('update-color', view.color);
     },
   },
 
@@ -106,25 +106,54 @@ Vue.component('dog', {
 });
 
 Vue.component('opinions', {
-  template:`
-  <input>`
-  ,
-  data(){
+  template: `
+  <div>
+    <form class="options-form" @submit.prevent="onSubmit">
+
+    <p>
+      <label for="name">Name:</label>
+      <input id="name" v-model="name" placeholder="name" />
+    </p>
+
+    <p>
+      <label for="opinion">Opinion:</label>
+      <textarea id="opinion" v-model="opinion" placeholder="opinion"></textarea>
+    </p>
+
+    <p>
+      <input type="submit" value="Submit">
+    </p>
+
+    </form>
+  </div>
+  `,
+  data() {
     return {
-      name: null
-    }
-  }
-})
+      name: null,
+      opinions: null,
+    };
+  },
+  methods: {
+    onSubmit() {
+      let currentOpinion = {
+        name: this.name,
+        opinion: this.option,
+      };
+      this.name = null;
+      this.opinion = null;
+    },
+  },
+});
 
 let app = new Vue({
   el: '#app',
   data: {
     premium: true,
-    selectedColor: 'grey'
+    selectedColor: 'grey',
   },
   methods: {
-    updateColor(color){
-      this.selectedColor = color
-    }
-  }
+    updateColor(color) {
+      this.selectedColor = color;
+    },
+  },
 });
